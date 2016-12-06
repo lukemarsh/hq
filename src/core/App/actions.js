@@ -7,6 +7,7 @@ import {
   CREATE_CATEGORY,
   CREATE_SECTION,
   DELETE_SECTION,
+  SECTION_DELETED,
   SCROLL_TO_SECTION,
   SET_CLOSEST_SECTION
 } from './constants';
@@ -41,6 +42,10 @@ export function createSection(category, title) {
 
 export function deleteSection(category, sectionId) {
   return { type: DELETE_SECTION, category, sectionId };
+}
+
+export function sectionDeleted(category, sectionId) {
+  return { type: SECTION_DELETED, category, sectionId };
 }
 
 export function scrollToSection(sectionId) {

@@ -6,7 +6,10 @@ import {
   setCurrentUser,
   setCategories,
   updateCategories,
-  // addSectionToCategories
+  addSectionToCategories,
+  toggleModal,
+  scrollToSection,
+  setClosestSection
 } from '../actions';
 
 describe('appReducer', () => {
@@ -86,8 +89,18 @@ describe('appReducer', () => {
   });
 
   // it('should handle the addSectionToCategories action correctly', () => {
-  //   const category = {};
-  //   const section = {};
+  //   const category = {
+  //     id: '5845a4c5f983034cae0695a4',
+  //     order: 0,
+  //     sections: [],
+  //     title: 'category title'
+  //   };
+  //   const section = {
+  //     id: '58459c6cca8d7539c8071c5f',
+  //     order: 0,
+  //     template: 'basicpage',
+  //     title: 'Home'
+  //   };
   //   const index = 0;
 
   //   const expectedResult = state.updateIn(['categories', index, 'sections'], (arr) => {
@@ -97,4 +110,28 @@ describe('appReducer', () => {
 
   //   expect(reducer(state, addSectionToCategories(category, section))).toEqual(expectedResult);
   // });
+
+  it('should handle the toggleModal action correctly', () => {
+    const component = {};
+    const props = {};
+    const expectedResult = state
+      .setIn(['modalComponent', 'component'], component)
+      .setIn(['modalComponent', 'props'], props);
+
+    expect(reducer(state, toggleModal(component, props))).toEqual(expectedResult);
+  });
+
+  it('should handle the scrollToSection action correctly', () => {
+    const expectedResult = state.set('scrolledSection', 123);
+
+    expect(reducer(state, scrollToSection(123))).toEqual(expectedResult);
+  });
+
+  it('should handle the setClosestSection action correctly', () => {
+    const expectedResult = state
+      .set('activeSection', 123)
+      .set('scrolledSection', null);
+
+    expect(reducer(state, setClosestSection(123))).toEqual(expectedResult);
+  });
 });

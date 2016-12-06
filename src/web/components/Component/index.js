@@ -5,7 +5,7 @@ import ImageComponent from 'web/components/ImageComponent';
 
 export const Component = ({ component }) => (
   <div>
-    {component.data.map(({ componentType, id, data }, key) => {
+    {component.data.map(({ componentType, data }, key) => {
       switch (componentType) {
         case 'TextComponent':
           return <TextComponent {...{ key, data }} />;
