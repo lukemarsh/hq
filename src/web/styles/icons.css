@@ -1,0 +1,11 @@
+:global(.icon-circle-cross::before) {
+  content: '\e900';
+}
+
+:global(.icon-circle-minus::before) {
+  content: '\e901';
+}
+
+:global(.icon-circle-plus::before) {
+  content: '\e902';
+}

@@ -1,0 +1,51 @@
+@font-face {
+  font-family: apercu;
+  src: url('web/fonts/apercu-regular-pro-web/apercu-regular-pro.eot');
+  src:
+    url('web/fonts/apercu-regular-pro-web/apercu-regular-pro.eot?#iefix') format('embedded-opentype'),
+    url('web/fonts/apercu-regular-pro-web/apercu-regular-pro.woff') format('woff'),
+    url('web/fonts/apercu-regular-pro-web/apercu-regular-pro.woff2') format('woff2'),
+    url('web/fonts/apercu-regular-pro-web/apercu-regular-pro.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: apercu;
+  src: url('web/fonts/apercu-bold-pro-web/apercu-bold-pro.eot');
+  src:
+    url('web/fonts/apercu-bold-pro-web/apercu-bold-pro.eot?#iefix') format('embedded-opentype'),
+    url('web/fonts/apercu-bold-pro-web/apercu-bold-pro.woff') format('woff'),
+    url('web/fonts/apercu-bold-pro-web/apercu-bold-pro.woff2') format('woff2'),
+    url('web/fonts/apercu-bold-pro-web/apercu-bold-pro.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: icomoon;
+  src: url('web/fonts/icomoon/icomoon.eot?xhlox3');
+  src:
+    url('web/fonts/icomoon/icomoon.eot?xhlox3#iefix') format('embedded-opentype'),
+    url('web/fonts/icomoon/icomoon.ttf?xhlox3') format('truetype'),
+    url('web/fonts/icomoon/icomoon.woff?xhlox3') format('woff'),
+    url('web/fonts/icomoon/icomoon.svg?xhlox3#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^='icon-'],
+[class*=' icon-'] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: icomoon !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

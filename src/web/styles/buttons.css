@@ -1,0 +1,12 @@
+:global(.btnBlue) {
+  border: 0;
+  padding: 0;
+  width: 311px;
+  height: 56px;
+  border-radius: 100px;
+  color: #FFF;
+  background-color: var(--FFC-blue);
+  font-size: 18px;
+  margin: 65px auto;
+  display: inherit;
+}

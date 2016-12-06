@@ -1,0 +1,22 @@
+@import 'colours.css';
+
+input[type='text'] {
+  font-size: 20px;
+  height: 64px;
+  border-radius: 6px;
+  width: 100%;
+  padding: 0 16px;
+  border: 1px solid #CCC;
+}
+
+input,
+button {
+  outline: none;
+  font-family: inherit;
+}
+
+button {
+  cursor: pointer;
+  border-radius: 6px;
+  border: 1px solid #CCC;
+}
