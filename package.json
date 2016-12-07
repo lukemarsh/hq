@@ -1,10 +1,10 @@
 {
-  "name": "react-redux-boilerplate",
+  "name": "hq",
   "version": "0.0.1",
   "description": "A boilerplate for React applications",
   "repository": {
     "type": "git",
-    "url": "git://github.com/lukemarsh/react-redux-boilerplate.git"
+    "url": "git://github.com/lukemarsh/hq.git"
   },
   "engines": {
     "npm": ">=3"
@@ -87,6 +87,7 @@
     "chai-as-promised": "6.0.0",
     "chai-enzyme": "0.5.2",
     "cheerio": "0.22.0",
+    "coveralls": "^2.11.14",
     "css-loader": "0.25.0",
     "enzyme": "2.4.1",
     "eslint": "3.9.0",
