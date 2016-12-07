@@ -1,5 +1,9 @@
 [![Build Status](https://travis-ci.org/lukemarsh/react-redux-boilerplate.svg?branch=master)](https://travis-ci.org/lukemarsh/react-redux-boilerplate)
 
+<a href="https://coveralls.io/r/lukemarsh/hq">
+  <img src="https://coveralls.io/repos/github/lukemarsh/hq/badge.svg" alt="Test Coverage" />
+</a>
+
 ## Quick start
 
 1. Clone this repo using `git clone --depth=1 https://github.com/lukemarsh/react-redux-boilerplate.git`
