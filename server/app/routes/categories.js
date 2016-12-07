@@ -2,9 +2,7 @@ const _ = require('lodash');
 const express = require('express');
 const router = new express.Router();
 const objectId = require('mongoose').Types.ObjectId;
-
 const searchClient = require('../services/search_client');
-
 const ResponseHelper = require('./response_helper');
 const Category = require('../models/Category');
 

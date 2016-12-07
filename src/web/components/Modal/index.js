@@ -1,6 +1,6 @@
 import React from 'react';
 import { toggleModal } from 'core/App/actions';
-import { modalComponents } from './config';
+import { modalComponents } from 'web/components/Modal/config';
 import styles from './styles.css';
 
 const Modal = ({ modalComponent, dispatch }) => {
