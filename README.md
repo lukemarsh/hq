@@ -1,8 +1,13 @@
-[![Build Status](https://travis-ci.org/lukemarsh/react-redux-boilerplate.svg?branch=master)](https://travis-ci.org/lukemarsh/react-redux-boilerplate)
-
-<a href="https://coveralls.io/r/lukemarsh/hq">
-  <img src="https://coveralls.io/repos/github/lukemarsh/hq/badge.svg" alt="Test Coverage" />
-</a>
+<div align="center">
+  <!-- Build Status -->
+  <a href="https://travis-ci.org/lukemarsh/hq">
+    <img src="https://travis-ci.org/lukemarsh/hq.svg" alt="Build Status" />
+  </a>
+  <!-- Test Coverage -->
+  <a href="https://coveralls.io/r/lukemarsh/hq">
+    <img src="https://coveralls.io/repos/github/lukemarsh/hq/badge.svg" alt="Test Coverage" />
+  </a>
+</div>
 
 ## Quick start
 
