@@ -53,9 +53,10 @@ export const Menu = ({ categories, activeSection, currentUser, dispatch }) => (
                   className="icon icon-circle-cross"
                   onClick={() => dispatch(
                     toggleModal('confirm',
-                    { text: 'Are you sure you want to delete?',
-                      title: 'Confirm',
-                      action: () => deleteSection(category, section.id) }
+                      { text: `Are you sure you want to delete ${section.title}?`,
+                        title: 'Confirm',
+                        action: () => deleteSection(category, section.id)
+                      }
                     )
                   )}
                 />
