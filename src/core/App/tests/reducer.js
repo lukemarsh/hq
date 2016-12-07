@@ -6,7 +6,7 @@ import {
   setCurrentUser,
   setCategories,
   updateCategories,
-  addSectionToCategories,
+  // addSectionToCategories,
   toggleModal,
   scrollToSection,
   setClosestSection

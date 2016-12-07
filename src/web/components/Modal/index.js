@@ -21,7 +21,7 @@ const Modal = ({ modalComponent, dispatch }) => {
 
   if (!Component) return null;
   return (
-    <div>
+    <div className={styles.modalContainer}>
       <div
         className={styles.overlay}
         onClick={() => dispatch(toggleModal())}

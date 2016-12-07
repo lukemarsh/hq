@@ -14,7 +14,7 @@ const ObjectId = require('mongoose').Types.ObjectId;
 const Category = require('../models/Category');
 const app = express();
 
-// passportStub.install(app);
+passportStub.install(app);
 
 describe('Routing', () => {
   let categories;
