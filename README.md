@@ -1,12 +1,19 @@
+<div align="center">
+  <!-- Build Status -->
+  <a href="https://travis-ci.org/lukemarsh/hq">
+    <img src="https://travis-ci.org/lukemarsh/hq.svg" alt="Build Status" />
+  </a>
+  <!-- Test Coverage -->
+  <a href="https://coveralls.io/r/lukemarsh/hq">
+    <img src="https://coveralls.io/repos/github/lukemarsh/hq/badge.svg" alt="Test Coverage" />
+  </a>
+</div>
+
 ## Quick start
 
-1. Clone this repo using `git clone --depth=1 https://github.com/lukemarsh/react-redux-boilerplate.git`
+1. Clone this repo using `git clone --depth=1 https://github.com/lukemarsh/hq.git`
 1. Run `npm install` to install dependencies
 1. Run `npm start` to see the example app at `http://localhost:3000`.
-
-Now you're ready to rumble!
-
-> Please note that this boilerplate is **not meant for beginners**! If you're just starting out with react or redux, please refer to https://github.com/petehunt/react-howto instead.
 
 ## Documentation
 
