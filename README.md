@@ -11,13 +11,9 @@
 
 ## Quick start
 
-1. Clone this repo using `git clone --depth=1 https://github.com/lukemarsh/react-redux-boilerplate.git`
+1. Clone this repo using `git clone --depth=1 https://github.com/lukemarsh/hq.git`
 1. Run `npm install` to install dependencies
 1. Run `npm start` to see the example app at `http://localhost:3000`.
-
-Now you're ready to rumble!
-
-> Please note that this boilerplate is **not meant for beginners**! If you're just starting out with react or redux, please refer to https://github.com/petehunt/react-howto instead.
 
 ## Documentation
 
