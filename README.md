@@ -7,7 +7,10 @@
   <a href="https://coveralls.io/r/lukemarsh/hq">
     <img src="https://coveralls.io/repos/github/lukemarsh/hq/badge.svg" alt="Test Coverage" />
   </a>
-  [![Stories in Ready](https://badge.waffle.io/lukemarsh/hq.png?label=ready&title=Ready)](http://waffle.io/lukemarsh/hq)
+  <!-- Test Coverage -->
+  <a href="http://waffle.io/lukemarsh/hq">
+    <img src="https://badge.waffle.io/lukemarsh/hq.png?label=ready&title=Ready" alt="Stories in Ready" />
+  </a>
 </div>
 
 ## Quick start
