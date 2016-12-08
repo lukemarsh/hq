@@ -13,9 +13,7 @@ import {
 } from './constants';
 
 const initialState = fromJS({
-  currentUser: {
-    name: ''
-  },
+  currentUser: null,
   categories: [],
   modalComponent: {
     component: null,

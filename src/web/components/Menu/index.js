@@ -1,5 +1,6 @@
 import React from 'react';
-import { toggleModal, deleteSection, scrollToSection } from 'core/App/actions';
+import MenuCategory from 'web/components/Menu/MenuCategory';
+import { toggleModal } from 'core/App/actions';
 import styles from './styles.css';
 
 export const Menu = ({ categories, activeSection, currentUser, dispatch }) => (
@@ -19,50 +20,7 @@ export const Menu = ({ categories, activeSection, currentUser, dispatch }) => (
     </div>
     <ul>
       {categories.map((category, key) =>
-        <li {...{ key }}>
-          <span className={styles.categoryTitle}>
-            {category.title}
-            <span
-              className="icon icon-circle-plus"
-              onClick={(evt) => {
-                evt.preventDefault();
-                dispatch(toggleModal('newSection', { category, title: 'New section' }));
-              }}
-            />
-          </span>
-          <ul>
-            {category.sections.map((section, k) =>
-              <li
-                className={styles.section}
-                {...{ key: k }}
-              >
-                <a
-                  href
-                  onClick={(evt) => {
-                    evt.preventDefault();
-                    dispatch(scrollToSection(section.id));
-                  }}
-                >
-                  <span
-                    className={activeSection === section.id ? styles.active : null}
-                  >
-                    {section.title}
-                  </span>
-                </a>
-                <span
-                  className="icon icon-circle-cross"
-                  onClick={() => dispatch(
-                    toggleModal('confirm',
-                      { text: 'Are you sure you want to delete?',
-                        title: 'Confirm',
-                        action: () => deleteSection(category, section.id) }
-                    )
-                  )}
-                />
-              </li>
-            )}
-          </ul>
-        </li>
+        <MenuCategory {...{ key, category, activeSection, dispatch }} />
       )}
     </ul>
   </div>

@@ -17,9 +17,7 @@ describe('appReducer', () => {
 
   beforeEach(() => {
     state = fromJS({
-      currentUser: {
-        name: ''
-      },
+      currentUser: null,
       categories: [],
       modalComponent: {
         component: null,

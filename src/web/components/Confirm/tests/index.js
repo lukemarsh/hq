@@ -22,6 +22,15 @@ describe('<Confirm />', () => {
     expect(confirm.find('p').text()).toEqual('Are you sure?');
   });
 
+  it('should close the modal', () => {
+    const dispatch = expect.createSpy();
+    confirm = mount(
+      <Confirm {...{ props, dispatch }} />
+    );
+    confirm.find('button[type="cancel"]').simulate('click');
+    expect(dispatch).toHaveBeenCalled();
+  });
+
   it('should submit the form', () => {
     const dispatch = expect.createSpy();
     confirm = mount(

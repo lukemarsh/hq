@@ -43,7 +43,7 @@ describe('<Section />', () => {
     section = mount(
       <Section {...{ category }} />
     );
-    expect(section.find('section').node.style.minHeight).toEqual('939px');
+    expect(section.find('section').node.style.minHeight).toEqual(`${document.documentElement.clientHeight}px`);
   });
 
   it('section should have a title', () => {

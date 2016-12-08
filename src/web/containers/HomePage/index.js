@@ -18,6 +18,19 @@ window.addEventListener('resize', () => {
 });
 
 export const HomePage = ({ dispatch, activeSection, scrolledSection, categories, currentUser }) => {
+  const handleScroll = (evt) => {
+    const sections = document.getElementsByTagName('section');
+    let closestSection;
+
+    for (let i = 0; i < sections.length; i += 1) {
+      if (evt.target.scrollTop >= sections[i].offsetTop) {
+        closestSection = sections[i];
+      }
+    }
+
+    dispatch(setClosestSection(closestSection.id));
+  };
+
   const renderPage = () => {
     const panel = document.getElementById('panel');
     const menu = document.getElementById('menu');
@@ -33,19 +46,6 @@ export const HomePage = ({ dispatch, activeSection, scrolledSection, categories,
     if (scrolledSection) {
       scrollToYWithEasing(activeSectionEl.offsetTop, 200);
     }
-
-    panel.onscroll = (e) => {
-      const sections = document.getElementsByTagName('section');
-      let closestSection;
-
-      for (let i = 0; i < sections.length; i += 1) {
-        if (e.target.scrollTop >= sections[i].offsetTop) {
-          closestSection = sections[i];
-        }
-      }
-
-      dispatch(setClosestSection(closestSection.id));
-    };
   };
   return (
     <div ref={renderPage}>
@@ -56,7 +56,7 @@ export const HomePage = ({ dispatch, activeSection, scrolledSection, categories,
         ]}
       />
       <Menu {...{ dispatch, categories, activeSection, currentUser }} />
-      <div id="panel" className={styles.panel}>
+      <div id="panel" onScroll={handleScroll} className={styles.panel}>
         <div className="fixed">
           <button className={styles.toggle} onClick={() => slideout.toggle()}>toggle</button>
         </div>
