@@ -4,8 +4,8 @@
     <img src="https://travis-ci.org/lukemarsh/hq.svg" alt="Build Status" />
   </a>
   <!-- Test Coverage -->
-  <a href="https://coveralls.io/r/lukemarsh/hq">
-    <img src="https://coveralls.io/repos/github/lukemarsh/hq/badge.svg" alt="Test Coverage" />
+  <a href='https://coveralls.io/github/lukemarsh/hq'>
+    <img src='https://coveralls.io/repos/github/lukemarsh/hq/badge.svg' alt='Coverage Status' />
   </a>
   <!-- Test Coverage -->
   <a href="http://waffle.io/lukemarsh/hq">
