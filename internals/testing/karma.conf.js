@@ -1,6 +1,9 @@
 const webpackConfig = require('../webpack/webpack.test');
 const argv = require('minimist')(process.argv.slice(2));
 const path = require('path');
+const hook = require('css-modules-require-hook');
+
+hook({ generateScopedName: '[name]__[local]' });
 
 module.exports = (config) => {
   config.set({

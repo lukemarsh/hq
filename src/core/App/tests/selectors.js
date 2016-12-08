@@ -85,10 +85,10 @@ describe('selectCategories', () => {
 describe('selectModalComponent', () => {
   const modalComponentSelector = selectModalComponent();
   it('should select the currentUser state', () => {
-    const modalComponentState = fromJS({
+    const modalComponentState = {
       component: 'newCategory',
       props: { title: 'New Category' }
-    });
+    };
     const mockedState = fromJS({
       global: {
         modalComponent: {

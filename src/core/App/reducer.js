@@ -65,7 +65,7 @@ function reducer(state = initialState, action) {
     case TOGGLE_MODAL:
       return state
         .setIn(['modalComponent', 'component'], action.component)
-        .setIn(['modalComponent', 'props'], action.props);
+        .setIn(['modalComponent', 'props'], fromJS(action.props));
     case SCROLL_TO_SECTION:
       return state
         .set('scrolledSection', action.sectionId);

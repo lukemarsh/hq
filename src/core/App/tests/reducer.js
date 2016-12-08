@@ -116,7 +116,7 @@ describe('appReducer', () => {
     const props = {};
     const expectedResult = state
       .setIn(['modalComponent', 'component'], component)
-      .setIn(['modalComponent', 'props'], props);
+      .setIn(['modalComponent', 'props'], fromJS(props));
 
     expect(reducer(state, toggleModal(component, props))).toEqual(expectedResult);
   });

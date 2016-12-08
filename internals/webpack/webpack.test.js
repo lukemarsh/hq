@@ -19,7 +19,7 @@ module.exports = {
     ],
     loaders: [
       { test: /\.json$/, loader: 'json-loader' },
-      { test: /\.css$/, loader: 'null-loader' },
+      { test: /\.css$/, loader: 'style-loader!css-loader?localIdentName=[local]&modules&importLoaders=1&sourceMap!postcss-loader' },
 
       // sinon.js--aliased for enzyme--expects/requires global vars.
       // imports-loader allows for global vars to be injected into the module.
@@ -34,6 +34,10 @@ module.exports = {
       { test: /\.jpe?g$|\.gif$|\.png$|\.svg$/i,
         loader: 'null-loader',
       },
+      {
+        test: /\.(eot|svg|ttf|woff|woff2)$/,
+        loader: 'null-loader'
+      }
     ],
   },
 

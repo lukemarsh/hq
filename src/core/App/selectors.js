@@ -14,7 +14,7 @@ const selectCategories = () => createSelector(
 
 const selectModalComponent = () => createSelector(
   selectGlobal(),
-  (globalState) => globalState.get('modalComponent')
+  (globalState) => globalState.get('modalComponent').toJS()
 );
 
 const selectActiveSection = () => createSelector(
