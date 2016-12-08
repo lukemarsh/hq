@@ -11,9 +11,8 @@ export function checkStore(store) {
     dispatch: isFunction,
     subscribe: isFunction,
     getState: isFunction,
-    liftedStore: isObject,
     replaceReducer: isFunction,
-    runSaga: isObject,
+    runSaga: isFunction,
     asyncReducers: isObject,
   };
   invariant(
