@@ -9,7 +9,7 @@ import {
   SECTION_CREATED,
   SECTION_DELETED,
   SCROLL_TO_SECTION,
-  SET_CLOSEST_SECTION
+  CLOSEST_SECTION_SET
 } from './constants';
 
 const initialState = fromJS({
@@ -67,9 +67,9 @@ function reducer(state = initialState, action) {
     case SCROLL_TO_SECTION:
       return state
         .set('scrolledSection', action.sectionId);
-    case SET_CLOSEST_SECTION:
+    case CLOSEST_SECTION_SET:
       return state
-        .set('activeSection', action.sectionId)
+        .set('activeSection', action.closestSection.id)
         .set('scrolledSection', null);
     default:
       return state;

@@ -9,7 +9,8 @@ import {
   DELETE_SECTION,
   SECTION_DELETED,
   SCROLL_TO_SECTION,
-  SET_CLOSEST_SECTION
+  SET_CLOSEST_SECTION,
+  CLOSEST_SECTION_SET
 } from './constants';
 
 export function setCurrentUser(currentUser) {
@@ -52,6 +53,10 @@ export function scrollToSection(sectionId) {
   return { type: SCROLL_TO_SECTION, sectionId };
 }
 
-export function setClosestSection(sectionId) {
-  return { type: SET_CLOSEST_SECTION, sectionId };
+export function setClosestSection(scrollTop, sections) {
+  return { type: SET_CLOSEST_SECTION, scrollTop, sections };
+}
+
+export function closestSectionSet(closestSection) {
+  return { type: CLOSEST_SECTION_SET, closestSection };
 }

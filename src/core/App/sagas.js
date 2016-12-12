@@ -17,7 +17,9 @@ import {
   SECTION_CREATED,
   DELETE_SECTION,
   SECTION_DELETED,
-  SCROLL_TO_SECTION
+  SCROLL_TO_SECTION,
+  SET_CLOSEST_SECTION,
+  CLOSEST_SECTION_SET
 } from './constants';
 
 export function* fetchCurrentUser() {
@@ -109,12 +111,25 @@ export function* deleteSection({ category, sectionId }) {
   yield put({ type: SECTION_DELETED, category, sectionId });
 }
 
+export function* setClosestSection({ scrollTop, sections }) {
+  let closestSection;
+
+  for (let i = 0; i < sections.length; i += 1) {
+    if (scrollTop >= sections[i].offsetTop) {
+      closestSection = sections[i];
+    }
+  }
+
+  yield put({ type: CLOSEST_SECTION_SET, closestSection });
+}
+
 export function* root() {
   yield call(fetchCurrentUserFlow);
   yield call(fetchCategoriesFlow);
   yield spawn(takeLatest, CREATE_CATEGORY, createCategory);
   yield spawn(takeLatest, CREATE_SECTION, createSection);
   yield spawn(takeLatest, DELETE_SECTION, deleteSection);
+  yield spawn(takeLatest, SET_CLOSEST_SECTION, setClosestSection);
 }
 
 export function forwardTo(location) {

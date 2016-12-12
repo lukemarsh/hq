@@ -12,7 +12,8 @@ import {
   fetchComponent,
   createCategory,
   createSection,
-  deleteSection
+  deleteSection,
+  setClosestSection
 } from '../sagas';
 
 import {
@@ -20,7 +21,8 @@ import {
   updateCategories,
   addSectionToCategories,
   scrollToSection,
-  sectionDeleted
+  sectionDeleted,
+  closestSectionSet
 } from '../actions';
 
 describe('fetchCurrentUser', () => {
@@ -157,4 +159,16 @@ describe('deleteSection', () => {
     const putDescriptor = deleteSectionGenerator.next({ category, sectionId }).value;
     expect(putDescriptor).toEqual(put(sectionDeleted(category, sectionId)));
   });
+});
+
+describe('setClosestSection', () => {
+  const scrollTop = 1000;
+  const sections = [
+    {
+      offsetTop: 1
+    }
+  ];
+  const setClosestSectionGenerator = setClosestSection({ scrollTop, sections });
+  const putDescriptor = setClosestSectionGenerator.next().value;
+  expect(putDescriptor).toEqual(put(closestSectionSet(sections[0])));
 });

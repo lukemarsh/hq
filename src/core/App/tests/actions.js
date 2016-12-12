@@ -187,13 +187,15 @@ describe('App Actions', () => {
 
   describe('setClosestSection', () => {
     it('data should match', () => {
-      const sectionId = 123;
+      const sections = [];
+      const scrollTop = 1000;
       const expectedResult = {
         type: SET_CLOSEST_SECTION,
-        sectionId
+        scrollTop,
+        sections
       };
 
-      expect(setClosestSection(sectionId)).toEqual(expectedResult);
+      expect(setClosestSection(scrollTop, sections)).toEqual(expectedResult);
     });
   });
 });

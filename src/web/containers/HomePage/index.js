@@ -20,15 +20,7 @@ window.addEventListener('resize', () => {
 export const HomePage = ({ dispatch, activeSection, scrolledSection, categories, currentUser }) => {
   const handleScroll = (evt) => {
     const sections = document.getElementsByTagName('section');
-    let closestSection;
-
-    for (let i = 0; i < sections.length; i += 1) {
-      if (evt.target.scrollTop >= sections[i].offsetTop) {
-        closestSection = sections[i];
-      }
-    }
-
-    dispatch(setClosestSection(closestSection.id));
+    dispatch(setClosestSection(evt.target.scrollTop, sections));
   };
 
   const renderPage = () => {

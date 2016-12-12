@@ -9,7 +9,7 @@ import {
   // addSectionToCategories,
   toggleModal,
   scrollToSection,
-  setClosestSection
+  closestSectionSet
 } from '../actions';
 
 describe('appReducer', () => {
@@ -130,6 +130,6 @@ describe('appReducer', () => {
       .set('activeSection', 123)
       .set('scrolledSection', null);
 
-    expect(reducer(state, setClosestSection(123))).toEqual(expectedResult);
+    expect(reducer(state, closestSectionSet({ id: 123 }))).toEqual(expectedResult);
   });
 });
