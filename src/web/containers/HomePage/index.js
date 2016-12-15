@@ -1,12 +1,14 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import Slideout from 'slideout';
+import { find, propEq, prop, compose } from 'ramda';
 import { setClosestSection } from 'core/App/actions';
 import { scrollToYWithEasing } from 'web/utils/scroll';
 import Menu from 'web/components/Menu';
 import Section from 'web/components/Section';
 import styles from './styles.css';
 
+const sections = [];
 let slideout;
 
 window.addEventListener('resize', () => {
@@ -17,16 +19,18 @@ window.addEventListener('resize', () => {
   }
 });
 
+const sectionLoaded = (section) => {
+  sections.push({ id: section.id, offsetTop: section.offsetTop });
+};
+
 export const HomePage = ({ dispatch, activeSection, scrolledSection, categories, currentUser }) => {
   const handleScroll = (evt) => {
-    const sections = document.getElementsByTagName('section');
     dispatch(setClosestSection(evt.target.scrollTop, sections));
   };
 
   const renderPage = () => {
     const panel = document.getElementById('panel');
     const menu = document.getElementById('menu');
-    const activeSectionEl = document.getElementById(scrolledSection);
 
     slideout = new Slideout({
       panel,
@@ -36,7 +40,8 @@ export const HomePage = ({ dispatch, activeSection, scrolledSection, categories,
     });
 
     if (scrolledSection) {
-      scrollToYWithEasing(activeSectionEl.offsetTop, 200);
+      const scrolledSectionOffsetTop = compose(prop('offsetTop'), find(propEq('id', scrolledSection)))(sections);
+      scrollToYWithEasing(scrolledSectionOffsetTop, 200);
     }
   };
   return (
@@ -53,7 +58,7 @@ export const HomePage = ({ dispatch, activeSection, scrolledSection, categories,
           <button className={styles.toggle} onClick={() => slideout.toggle()}>toggle</button>
         </div>
         {categories.map((category, key) =>
-          <Section {...{ key, category }} />
+          <Section {...{ key, category, sectionLoaded }} />
         )}
       </div>
     </div>

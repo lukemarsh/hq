@@ -1,7 +1,7 @@
 /* eslint no-constant-condition: ["error", { "checkLoops": false }] */
 
 import { browserHistory } from 'react-router';
-import { takeLatest } from 'redux-saga';
+import { takeLatest, throttle } from 'redux-saga';
 import { call, put, spawn, select } from 'redux-saga/effects';
 import { flatten } from 'ramda';
 import { get, post, remove } from 'web/utils/request';
@@ -129,7 +129,7 @@ export function* root() {
   yield spawn(takeLatest, CREATE_CATEGORY, createCategory);
   yield spawn(takeLatest, CREATE_SECTION, createSection);
   yield spawn(takeLatest, DELETE_SECTION, deleteSection);
-  yield spawn(takeLatest, SET_CLOSEST_SECTION, setClosestSection);
+  yield throttle(500, SET_CLOSEST_SECTION, setClosestSection);
 }
 
 export function forwardTo(location) {
