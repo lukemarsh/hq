@@ -32,19 +32,19 @@ describe('<HomePage />', () => {
   });
 
   it('setClosestSection should have been called', () => {
-    const setClosestSection = expect.createSpy();
+    const onSetClosestSection = expect.createSpy();
     const renderedComponent = shallow(
-      <HomePage {...{ categories: [{}, {}], setClosestSection }} />
+      <HomePage {...{ categories: [{}, {}], onSetClosestSection }} />
     );
     renderedComponent.find('.panel').simulate('scroll', { target: { scrollTop: 1000 } });
-    expect(setClosestSection).toHaveBeenCalled();
+    expect(onSetClosestSection).toHaveBeenCalled();
   });
 
   it('initializeSlideoutMenu should have been called', () => {
-    const initializeSlideoutMenu = expect.createSpy();
+    const onInitializeSlideoutMenu = expect.createSpy();
     mount(
-      <HomePage {...{ categories: [{ sections: [] }, { sections: [] }], currentUser: {}, initializeSlideoutMenu }} />
+      <HomePage {...{ categories: [{ sections: [] }, { sections: [] }], currentUser: {}, onInitializeSlideoutMenu }} />
     );
-    expect(initializeSlideoutMenu).toHaveBeenCalled();
+    expect(onInitializeSlideoutMenu).toHaveBeenCalled();
   });
 });
