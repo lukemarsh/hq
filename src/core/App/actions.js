@@ -10,7 +10,9 @@ import {
   SECTION_DELETED,
   SCROLL_TO_SECTION,
   SET_CLOSEST_SECTION,
-  CLOSEST_SECTION_SET
+  CLOSEST_SECTION_SET,
+  INITIALIZE_SLIDEOUT_MENU,
+  SLIDEOUT_MENU_INITIALIZED
 } from './constants';
 
 export function setCurrentUser(currentUser) {
@@ -60,3 +62,12 @@ export function setClosestSection(scrollTop, sections) {
 export function closestSectionSet(closestSection) {
   return { type: CLOSEST_SECTION_SET, closestSection };
 }
+
+export function initializeSlideoutMenu(panel, menu) {
+  return { type: INITIALIZE_SLIDEOUT_MENU, panel, menu };
+}
+
+export function slideoutMenuInitialized(slideoutMenu) {
+  return { type: SLIDEOUT_MENU_INITIALIZED, slideoutMenu };
+}
+

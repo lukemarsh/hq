@@ -9,7 +9,8 @@ import {
   SECTION_CREATED,
   SECTION_DELETED,
   SCROLL_TO_SECTION,
-  CLOSEST_SECTION_SET
+  CLOSEST_SECTION_SET,
+  SLIDEOUT_MENU_INITIALIZED
 } from './constants';
 
 const initialState = fromJS({
@@ -20,7 +21,8 @@ const initialState = fromJS({
     props: null
   },
   scrolledSection: null,
-  activeSection: null
+  activeSection: null,
+  slideoutMenu: null
 });
 
 function reducer(state = initialState, action) {
@@ -71,6 +73,9 @@ function reducer(state = initialState, action) {
       return state
         .set('activeSection', action.closestSection.id)
         .set('scrolledSection', null);
+    case SLIDEOUT_MENU_INITIALIZED:
+      return state
+        .set('slideoutMenu', action.slideoutMenu);
     default:
       return state;
   }

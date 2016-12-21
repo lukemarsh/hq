@@ -9,7 +9,8 @@ import {
   // addSectionToCategories,
   toggleModal,
   scrollToSection,
-  closestSectionSet
+  closestSectionSet,
+  slideoutMenuInitialized
 } from '../actions';
 
 describe('appReducer', () => {
@@ -24,7 +25,8 @@ describe('appReducer', () => {
         props: null
       },
       scrolledSection: null,
-      activeSection: null
+      activeSection: null,
+      slideoutMenu: null
     });
   });
 
@@ -131,5 +133,13 @@ describe('appReducer', () => {
       .set('scrolledSection', null);
 
     expect(reducer(state, closestSectionSet({ id: 123 }))).toEqual(expectedResult);
+  });
+
+  it('should handle the slideoutMenuInitialized action correctly', () => {
+    const slideoutMenu = undefined;
+    const expectedResult = state
+      .set('slideoutMenu', slideoutMenu);
+
+    expect(reducer(state, slideoutMenuInitialized(slideoutMenu))).toEqual(expectedResult);
   });
 });

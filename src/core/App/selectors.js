@@ -27,6 +27,11 @@ const selectScrolledSection = () => createSelector(
   (globalState) => globalState.get('scrolledSection')
 );
 
+const selectSlideOutMenu = () => createSelector(
+  selectGlobal(),
+  (globalState) => globalState.get('slideoutMenu')
+);
+
 const selectLocationState = () => {
   let prevRoutingState;
   let prevRoutingStateJS;
@@ -50,5 +55,6 @@ export {
   selectModalComponent,
   selectActiveSection,
   selectScrolledSection,
+  selectSlideOutMenu,
   selectLocationState,
 };

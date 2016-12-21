@@ -1,9 +1,7 @@
 import TinyAnimate from 'TinyAnimate';
 
-export function scrollToYWithEasing(to, duration) {
-  const scrollableElement = document.getElementById('panel');
-
+export function scrollToYWithEasing(scrollableElement, to, duration) {
   TinyAnimate.animate(scrollableElement.scrollTop, to, duration, (x) => {
-    scrollableElement.scrollTop = x;
+    scrollableElement.scrollTop = x; //eslint-disable-line
   }, 'easeInOutQuad');
 }

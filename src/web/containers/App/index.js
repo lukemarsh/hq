@@ -7,12 +7,13 @@ import {
   selectCategories,
   selectModalComponent,
   selectActiveSection,
-  selectScrolledSection
+  selectScrolledSection,
+  selectSlideOutMenu
 } from 'core/App/selectors';
 import Modal from 'web/components/Modal';
 
 export const App = (props) => {
-  const { currentUser, categories, modalComponent, activeSection, scrolledSection, dispatch, children } = props;
+  const { currentUser, categories, modalComponent, activeSection, scrolledSection, slideoutMenu, dispatch, children } = props;
 
   return (
     <div>
@@ -23,7 +24,7 @@ export const App = (props) => {
           { name: 'description', content: 'A React.js Boilerplate application' },
         ]}
       />
-      {children && React.cloneElement(children, { dispatch, activeSection, scrolledSection, categories, currentUser })}
+      {children && React.cloneElement(children, { dispatch, activeSection, scrolledSection, slideoutMenu, categories, currentUser })}
       <Modal {...{ modalComponent, dispatch }} />
     </div>
   );
@@ -39,7 +40,8 @@ App.propTypes = {
   modalComponent: React.PropTypes.object,
   dispatch: React.PropTypes.func,
   activeSection: React.PropTypes.string,
-  scrolledSection: React.PropTypes.string
+  scrolledSection: React.PropTypes.string,
+  slideoutMenu: React.PropTypes.object
 };
 
 const mapStateToProps = createSelector(
@@ -48,8 +50,9 @@ const mapStateToProps = createSelector(
   selectModalComponent(),
   selectActiveSection(),
   selectScrolledSection(),
-  (currentUser, categories, modalComponent, activeSection, scrolledSection) => ({
-    currentUser, categories, modalComponent, activeSection, scrolledSection
+  selectSlideOutMenu(),
+  (currentUser, categories, modalComponent, activeSection, scrolledSection, slideoutMenu) => ({
+    currentUser, categories, modalComponent, activeSection, scrolledSection, slideoutMenu
   })
 );
 

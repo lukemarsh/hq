@@ -8,7 +8,8 @@ import {
   selectCategories,
   selectModalComponent,
   selectActiveSection,
-  selectScrolledSection
+  selectScrolledSection,
+  selectSlideOutMenu
 } from '../selectors';
 
 describe('selectGlobal', () => {
@@ -124,5 +125,18 @@ describe('selectScrolledSection', () => {
       }
     });
     expect(scrolledSectionSelector(mockedState)).toEqual(scrolledSectionState);
+  });
+});
+
+describe('selectSlideOutMenu', () => {
+  const slideoutMenuSelector = selectSlideOutMenu();
+  it('should select the slideoutMenu state', () => {
+    const slideoutMenuState = undefined;
+    const mockedState = fromJS({
+      global: {
+        slideoutMenu: undefined
+      }
+    });
+    expect(slideoutMenuSelector(mockedState)).toEqual(slideoutMenuState);
   });
 });

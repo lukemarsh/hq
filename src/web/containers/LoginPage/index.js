@@ -1,7 +1,7 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 
-const LoginPage = () => (
+export const LoginPage = () => (
   <div>
     <Helmet
       title="Login Page"

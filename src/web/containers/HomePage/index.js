@@ -1,65 +1,65 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import Helmet from 'react-helmet';
-import Slideout from 'slideout';
-import { find, propEq, prop, compose } from 'ramda';
-import { setClosestSection } from 'core/App/actions';
+import { find, propEq, prop, compose, head, last } from 'ramda';
+import { setClosestSection, initializeSlideoutMenu } from 'core/App/actions';
 import { scrollToYWithEasing } from 'web/utils/scroll';
 import Menu from 'web/components/Menu';
 import Section from 'web/components/Section';
 import styles from './styles.css';
 
 const sections = [];
-let slideout;
-
-window.addEventListener('resize', () => {
-  const width = window.innerWidth;
-  if (width > 780 && slideout.isOpen()) {
-    slideout._opened = false;
-    slideout.panel.style.transform = 'translateX(0)';
-  }
-});
 
 const sectionLoaded = (section) => {
-  sections.push({ id: section.id, offsetTop: section.offsetTop });
+  if (section) {
+    sections.push({ id: section.id, offsetTop: section.offsetTop });
+  }
 };
 
-export const HomePage = ({ dispatch, activeSection, scrolledSection, categories, currentUser }) => {
+export const HomePage = ({ activeSection, dispatch, onInitializeSlideoutMenu, onSetClosestSection, scrolledSection, categories, slideoutMenu, currentUser }) => {
   const handleScroll = (evt) => {
-    dispatch(setClosestSection(evt.target.scrollTop, sections));
+    onSetClosestSection(evt.target.scrollTop, sections);
   };
 
-  const renderPage = () => {
-    const panel = document.getElementById('panel');
-    const menu = document.getElementById('menu');
+  const init = (container) => {
+    if (container) {
+      const panel = last(container.children);
+      const menu = head(container.children);
+      initializeSlideout(panel, menu);
+      scrollToSection(panel);
+    }
+  };
 
-    slideout = new Slideout({
-      panel,
-      menu,
-      padding: 256,
-      tolerance: 70
-    });
-
+  const scrollToSection = (panel) => {
     if (scrolledSection) {
       const scrolledSectionOffsetTop = compose(prop('offsetTop'), find(propEq('id', scrolledSection)))(sections);
-      scrollToYWithEasing(scrolledSectionOffsetTop, 200);
+      scrollToYWithEasing(panel, scrolledSectionOffsetTop, 200);
+    }
+  };
+
+  const initializeSlideout = (panel, menu) => {
+    if (!slideoutMenu) {
+      onInitializeSlideoutMenu(panel, menu);
     }
   };
   return (
-    <div ref={renderPage}>
-      <Helmet
-        title="Home Page"
-        meta={[
-          { name: 'description', content: 'A React.js Boilerplate application homepage' },
-        ]}
-      />
-      <Menu {...{ dispatch, categories, activeSection, currentUser }} />
-      <div id="panel" onScroll={handleScroll} className={styles.panel}>
-        <div className="fixed">
-          <button className={styles.toggle} onClick={() => slideout.toggle()}>toggle</button>
+    <div>
+      <div ref={init}>
+        <Helmet
+          title="Home Page"
+          meta={[
+            { name: 'description', content: 'A React.js Boilerplate application homepage' },
+          ]}
+        />
+        <Menu {...{ dispatch, categories, activeSection, currentUser }} />
+        <div onScroll={handleScroll} className={styles.panel}>
+          <div className="fixed">
+            <button className={styles.toggle} onClick={() => slideoutMenu.toggle()}>toggle</button>
+          </div>
+          {categories.map((category, key) =>
+            <Section {...{ key, category, sectionLoaded }} />
+          )}
         </div>
-        {categories.map((category, key) =>
-          <Section {...{ key, category, sectionLoaded }} />
-        )}
       </div>
     </div>
   );
@@ -73,7 +73,15 @@ HomePage.propTypes = {
   currentUser: React.PropTypes.object,
   dispatch: React.PropTypes.func,
   activeSection: React.PropTypes.string,
-  scrolledSection: React.PropTypes.string
+  scrolledSection: React.PropTypes.string,
+  slideoutMenu: React.PropTypes.object,
+  onInitializeSlideoutMenu: React.PropTypes.func,
+  onSetClosestSection: React.PropTypes.func
 };
 
-export default HomePage;
+const mapDispatchToProps = (dispatch) => ({
+  onSetClosestSection: (scrollTop) => dispatch(setClosestSection(scrollTop, sections)),
+  onInitializeSlideoutMenu: (panel, menu) => dispatch(initializeSlideoutMenu(panel, menu))
+});
+
+export default connect(null, mapDispatchToProps)(HomePage);

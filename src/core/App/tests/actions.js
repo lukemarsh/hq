@@ -1,4 +1,5 @@
 import expect from 'expect';
+import React from 'react';
 
 import {
   SET_CURRENT_USER,
@@ -10,7 +11,8 @@ import {
   CREATE_SECTION,
   DELETE_SECTION,
   SCROLL_TO_SECTION,
-  SET_CLOSEST_SECTION
+  SET_CLOSEST_SECTION,
+  INITIALIZE_SLIDEOUT_MENU
 } from '../constants';
 
 import {
@@ -23,7 +25,8 @@ import {
   scrollToSection,
   setClosestSection,
   updateCategories,
-  addSectionToCategories
+  addSectionToCategories,
+  initializeSlideoutMenu
 } from '../actions';
 
 describe('App Actions', () => {
@@ -196,6 +199,20 @@ describe('App Actions', () => {
       };
 
       expect(setClosestSection(scrollTop, sections)).toEqual(expectedResult);
+    });
+  });
+
+  describe('initializeSlideoutMenu', () => {
+    it('data should match', () => {
+      const panel = <div />;
+      const menu = <div />;
+      const expectedResult = {
+        type: INITIALIZE_SLIDEOUT_MENU,
+        panel,
+        menu
+      };
+
+      expect(initializeSlideoutMenu(panel, menu)).toEqual(expectedResult);
     });
   });
 });

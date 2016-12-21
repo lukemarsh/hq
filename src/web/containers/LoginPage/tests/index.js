@@ -2,12 +2,12 @@ import expect from 'expect';
 import { shallow } from 'enzyme';
 import React from 'react';
 
-import { NotFound } from '../index';
+import { LoginPage } from '../index';
 
-describe('<NotFound />', () => {
+describe('<LoginPage />', () => {
   it('should render the page', () => {
     const renderedComponent = shallow(
-      <NotFound />
+      <LoginPage />
     );
     expect(renderedComponent.children.length).toEqual(1);
   });

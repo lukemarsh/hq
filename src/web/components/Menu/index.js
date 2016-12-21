@@ -4,7 +4,7 @@ import { toggleModal } from 'core/App/actions';
 import styles from './styles.css';
 
 export const Menu = ({ categories, activeSection, currentUser, dispatch }) => (
-  <div id="menu" className={styles.menu}>
+  <div className={styles.menu}>
     <div className={styles.title}>
       <h2>The App Business</h2>
       {currentUser.displayName}
