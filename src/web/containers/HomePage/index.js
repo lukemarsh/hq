@@ -10,10 +10,11 @@ import styles from './styles.css';
 
 const sections = [];
 
-const sectionLoaded = (section) => {
+export const sectionLoaded = (section) => {
   if (section) {
     sections.push({ id: section.id, offsetTop: section.offsetTop });
   }
+  return sections;
 };
 
 export const HomePage = ({ activeSection, dispatch, onInitializeSlideoutMenu, onSetClosestSection, scrolledSection, categories, slideoutMenu, currentUser }) => {

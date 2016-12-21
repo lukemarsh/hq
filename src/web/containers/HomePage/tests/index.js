@@ -2,7 +2,7 @@ import expect from 'expect';
 import { shallow, mount } from 'enzyme';
 import React from 'react';
 
-import { HomePage } from '../index';
+import { HomePage, sectionLoaded } from '../index';
 import { Section } from 'web/components/Section';
 
 describe('<HomePage />', () => {
@@ -46,5 +46,13 @@ describe('<HomePage />', () => {
       <HomePage {...{ categories: [{ sections: [] }, { sections: [] }], currentUser: {}, onInitializeSlideoutMenu }} />
     );
     expect(onInitializeSlideoutMenu).toHaveBeenCalled();
+  });
+
+  it('sections length should be `1`', () => {
+    const section = {
+      id: 1
+    };
+    const sectionLoadedFn = sectionLoaded(section);
+    expect(sectionLoadedFn.length).toEqual(1);
   });
 });
