@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --compilers js:babel-core/register"
+    "test": "mocha --compilers js:babel-core/register",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "author": "Luke Marsh <luke@theappbusiness.com> (http://www.theappbusiness.com/)",
   "license": "ISC",
@@ -20,7 +22,8 @@
     "mongoose-findorcreate": "^0.1.2",
     "morgan": "^1.7.0",
     "passport": "^0.3.2",
-    "passport-google-oauth": "^1.0.0"
+    "passport-google-oauth": "^1.0.0",
+    "snyk": "^1.316.1"
   },
   "devDependencies": {
     "babel-core": "^6.18.2",
@@ -29,5 +32,6 @@
     "passport-stub": "1.0.1",
     "should": "^11.1.1",
     "supertest": "^2.0.1"
-  }
+  },
+  "snyk": true
 }
