@@ -15,7 +15,7 @@
     "cookie-parser": "^1.4.3",
     "elasticsearch": "^12.1.0",
     "express-session": "^1.14.2",
-    "mongodb": "^2.2.12",
+    "mongodb": "^3.6.1",
     "mongoose": "^4.7.1",
     "mongoose-findorcreate": "^0.1.2",
     "morgan": "^1.7.0",
