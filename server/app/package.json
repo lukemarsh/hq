@@ -16,7 +16,7 @@
     "elasticsearch": "^12.1.0",
     "express-session": "^1.14.2",
     "mongodb": "^2.2.12",
-    "mongoose": "^4.7.1",
+    "mongoose": "^5.12.3",
     "mongoose-findorcreate": "^0.1.2",
     "morgan": "^1.7.0",
     "passport": "^0.3.2",
