@@ -67,7 +67,7 @@
     "sanitize.css": "4.1.0",
     "slideout": "1.0.1",
     "styled-components": "1.0.3",
-    "url-loader": "0.5.7",
+    "url-loader": "0.5.8",
     "warning": "3.0.0",
     "whatwg-fetch": "1.0.0"
   },
